@@ -76,9 +76,7 @@ export default function App() {
 
         {/* KernelGuard links */}
         <div className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/25">
-            KernelGuard
-          </span>
+        
           <a
             href={LINKS.kernelguard}
             target="_blank"
@@ -104,10 +102,8 @@ export default function App() {
       {/* Simulation info badge */}
       <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 flex items-center space-x-3 text-white/30 hover:text-white/60 transition-all duration-500 cursor-default select-none group/badge z-50">
         <div className="flex relative items-center justify-center">
-          <span className="absolute inline-flex h-2.5 w-2.5 rounded-full bg-white/30 opacity-75 group-hover/badge:animate-ping" />
-          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white/50" />
         </div>
-        <span className="text-[10px] sm:text-xs font-light tracking-widest uppercase">
+        <span className="text-xs font-medium tracking-[0.2em] uppercase text-slate-500">
           Lattice Boltzmann Simulation
         </span>
       </div>
