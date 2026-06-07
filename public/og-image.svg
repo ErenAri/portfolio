@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="'Segoe UI', Inter, system-ui, sans-serif">
+  <defs>
+    <radialGradient id="glow" cx="82%" cy="18%" r="55%">
+      <stop offset="0%" stop-color="#3ee8b5" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#3ee8b5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#3ee8b5"/>
+
+  <!-- Watermark shield -->
+  <g transform="translate(905 150) scale(3.2)" opacity="0.10">
+    <path d="M32 9 L51 15.5 V31 C51 42.5 42.6 50.6 32 55 C21.4 50.6 13 42.5 13 31 V15.5 Z"
+          fill="none" stroke="#3ee8b5" stroke-width="2.4" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Eyebrow -->
+  <text x="90" y="150" fill="#3ee8b5" font-size="26" letter-spacing="5" font-family="ui-monospace, 'JetBrains Mono', monospace" font-weight="500">
+    KERNELGUARD · SECURITY &amp; SYSTEMS ENGINEERING
+  </text>
+
+  <!-- Name -->
+  <text x="86" y="300" fill="#ffffff" font-size="132" font-weight="700" letter-spacing="-3">Eren Arı</text>
+
+  <!-- Headline -->
+  <text x="90" y="392" fill="#e8ecec" font-size="46" font-weight="500">Security engineered into the code,</text>
+  <text x="90" y="450" fill="#3ee8b5" font-size="46" font-weight="500">not bolted on.</text>
+
+  <!-- Footer line -->
+  <text x="90" y="560" fill="#9aa6a6" font-size="28" font-family="ui-monospace, 'JetBrains Mono', monospace">
+    eBPF · Linux LSM · secure backends · open source
+  </text>
+</svg>

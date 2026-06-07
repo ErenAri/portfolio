@@ -122,10 +122,24 @@ const CliveFluidBackground: React.FC = () => {
     }
 
     let running = true;
-    let reqId: number;
+    let scheduled = false;
+    let reqId = 0;
     let time = 0;
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Pause when the tab is hidden or the hero has scrolled out of view.
+    const isPaused = () => document.hidden || window.scrollY > window.innerHeight * 0.9;
+
+    // Schedule the next frame — never while paused or under reduced motion.
+    function schedule() {
+      if (!scheduled && running && !motionQuery.matches) {
+        scheduled = true;
+        reqId = requestAnimationFrame(tick);
+      }
+    }
 
     const tick = () => {
+        scheduled = false;
         if (!running) return;
         time += 0.01;
 
@@ -236,10 +250,32 @@ const CliveFluidBackground: React.FC = () => {
             }
         }
 
-        reqId = requestAnimationFrame(tick);
+        schedule();
     };
 
-    tick();
+    if (motionQuery.matches) {
+        // Reduced motion: compose a single richer static frame and leave it on screen.
+        for (let i = 0; i < 90; i++) tick();
+    } else {
+        schedule();
+    }
+
+    const updateRunState = () => {
+        running = !isPaused();
+        if (running) schedule();
+    };
+    const onMotionChange = () => {
+        if (motionQuery.matches) {
+            if (reqId) cancelAnimationFrame(reqId);
+            scheduled = false;
+        } else {
+            running = !isPaused();
+            schedule();
+        }
+    };
+    document.addEventListener('visibilitychange', updateRunState);
+    window.addEventListener('scroll', updateRunState, { passive: true });
+    motionQuery.addEventListener('change', onMotionChange);
 
     let d = 0;
     const applyDrag = (x: number, y: number, dx: number, dy: number) => {
@@ -320,21 +356,26 @@ const CliveFluidBackground: React.FC = () => {
 
     return () => {
         running = false;
-        cancelAnimationFrame(reqId);
+        scheduled = false;
+        if (reqId) cancelAnimationFrame(reqId);
         window.removeEventListener('mousedown', handleMouseDown);
         window.removeEventListener('mouseup', handleMouseUp);
         window.removeEventListener('mousemove', handleMouseMove);
         window.removeEventListener('touchstart', handleTouchStart);
         window.removeEventListener('touchmove', handleTouchMove);
         window.removeEventListener('resize', handleResize);
+        document.removeEventListener('visibilitychange', updateRunState);
+        window.removeEventListener('scroll', updateRunState);
+        motionQuery.removeEventListener('change', onMotionChange);
     };
   }, []);
 
   return (
     <canvas 
       ref={canvasRef} 
-      className="fixed top-0 left-0 w-screen h-screen pointer-events-none -z-10 bg-black touch-none"
+      className="fixed inset-0 h-full w-full pointer-events-none -z-10 bg-black touch-none"
       aria-hidden="true"
+      role="presentation"
     />
   );
 };

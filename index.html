@@ -3,11 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eren Ari</title>
+
+    <!-- Primary meta -->
+    <title>Eren Arı — Security Engineer &amp; Founder of KernelGuard</title>
+    <meta
+      name="description"
+      content="Eren Arı — founder and lead engineer of KernelGuard. I build runtime security at the kernel layer: eBPF, Linux LSM, and secure, open-source backends. Selected work, writing, and contact."
+    />
+    <meta name="author" content="Eren Arı" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://erenari.com/" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Icons & PWA -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Eren Arı — Security Engineer &amp; Founder of KernelGuard" />
+    <meta
+      property="og:description"
+      content="Runtime security at the kernel layer — eBPF, Linux LSM, secure backends — built open-source with KernelGuard."
+    />
+    <meta property="og:url" content="https://erenari.com/" />
+    <meta property="og:site_name" content="Eren Arı" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://erenari.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Eren Arı — Security Engineer, Founder of KernelGuard" />
+    <meta property="profile:first_name" content="Eren" />
+    <meta property="profile:last_name" content="Arı" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Eren Arı — Security Engineer &amp; Founder of KernelGuard" />
+    <meta
+      name="twitter:description"
+      content="Runtime security at the kernel layer — eBPF, Linux LSM, secure backends — open-source with KernelGuard."
+    />
+    <meta name="twitter:image" content="https://erenari.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Eren Arı — KernelGuard" />
+
+    <!-- Performance: warm up the font origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured data: Person + Organization graph -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://erenari.com/#website",
+            "url": "https://erenari.com/",
+            "name": "Eren Arı",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://erenari.com/#eren" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://erenari.com/#eren",
+            "name": "Eren Arı",
+            "givenName": "Eren",
+            "familyName": "Arı",
+            "url": "https://erenari.com/",
+            "image": "https://erenari.com/og-image.png",
+            "jobTitle": "Founder & Lead Engineer",
+            "description": "Security and systems engineer building runtime security at the kernel layer — eBPF, Linux LSM, and secure backends — open-source with KernelGuard.",
+            "worksFor": { "@id": "https://kernelguard.net/#org" },
+            "affiliation": { "@id": "https://kernelguard.net/#org" },
+            "knowsAbout": [
+              "eBPF",
+              "Linux Security Modules",
+              "Runtime Security",
+              "Endpoint Security",
+              "Systems Engineering",
+              "Secure Backend Engineering",
+              "Applied Machine Learning"
+            ],
+            "sameAs": [
+              "https://github.com/ErenAri",
+              "https://www.linkedin.com/in/eren-ari",
+              "https://medium.com/@erenari27",
+              "https://x.com/ErenAri27",
+              "https://orcid.org/0009-0002-9417-955X"
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://kernelguard.net/#org",
+            "name": "KernelGuard",
+            "url": "https://kernelguard.net/",
+            "logo": "https://erenari.com/icon-512.png",
+            "description": "Security-focused engineering studio building secure web platforms, hardened backends, and intelligent infrastructure. Open by default, zero-trust by design.",
+            "slogan": "Proof, not presentation.",
+            "founder": { "@id": "https://erenari.com/#eren" },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "İzmir",
+              "addressCountry": "TR"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/kernel-guard",
+              "https://github.com/Kernel-Guard"
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Fallback shown before hydration / to no-JS crawlers; React replaces it on mount.
+         #root stays transparent so the fixed background canvas shows through; the dark
+         <body> background prevents any flash before React mounts. -->
+    <div id="root" style="min-height:100vh">
+      <noscript>
+        <main
+          style="max-width:42rem;margin:0 auto;padding:4rem 1.5rem;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6"
+        >
+          <h1 style="font-size:2rem;margin:0 0 .5rem">Eren Arı</h1>
+          <p style="color:#3ee8b5;font-weight:600;margin:0 0 1.5rem">
+            Founder &amp; Lead Engineer, KernelGuard — Security &amp; Systems Engineering
+          </p>
+          <p>
+            I build runtime security at the kernel layer — eBPF, Linux LSM, and secure
+            backends — and ship it open-source with KernelGuard. I'm the creator of
+            Aegis-BPF, an eBPF/LSM runtime-enforcement agent (Apache-2.0) that earned the
+            OpenSSF Best Practices passing badge.
+          </p>
+          <p style="margin-top:1.5rem">
+            <strong>Links:</strong>
+            <a href="https://kernelguard.net" style="color:#7af3d0">KernelGuard</a> ·
+            <a href="https://github.com/ErenAri" style="color:#7af3d0">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/eren-ari" style="color:#7af3d0">LinkedIn</a> ·
+            <a href="https://medium.com/@erenari27" style="color:#7af3d0">Medium</a> ·
+            <a href="mailto:erenari27@gmail.com" style="color:#7af3d0">erenari27@gmail.com</a>
+          </p>
+          <p style="margin-top:1.5rem;color:#9aa6a6">
+            This site needs JavaScript for its full, interactive experience.
+          </p>
+        </main>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

@@ -1,26 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
+/* ----------------------------------------------------------------------------
+   Design tokens — Eren Arı / KernelGuard
+   Near-black base, one cold green-cyan accent (kernel / eBPF / terminal cue),
+   technical grotesk display + mono labels.
+---------------------------------------------------------------------------- */
 @theme {
-  --font-sans: "Segoe UI", "Montserrat", "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --color-base: #0a0a0a;
+  --color-panel: #111418;
+  --color-panel-2: #161a1f;
+  --color-line: #232a30;
+  --color-ink: #e8ecec;
+  --color-muted: #9aa6a6;
+  --color-faint: #6b7676;
+  --color-accent: #3ee8b5;
+  --color-accent-soft: #7af3d0;
+  --color-accent-dim: #143a30;
 }
 
 @layer base {
-  body, #root {
-    @apply font-sans bg-black text-[#eee] antialiased m-0 p-0 overflow-hidden text-center touch-none;
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Single-screen layout. Only <body> carries the opaque base colour; #root stays
+     transparent so the fixed -z-10 fluid canvas (a child of #root) is never painted over. */
+  body {
+    @apply font-sans bg-base text-ink antialiased m-0 p-0;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
+    text-align: center;
+    touch-action: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  #root {
+    @apply font-sans text-ink;
+    height: 100vh;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: #04130f;
+    text-shadow: none;
+  }
+  ::-moz-selection {
+    background: var(--color-accent);
+    color: #04130f;
+    text-shadow: none;
+  }
+
+  /* Visible keyboard focus over the animated background */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Slim, on-brand scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line) transparent;
   }
 }
 
-/* Base selection color inverted */
-::selection {
-  background: #fff;
-  color: #000;
-  text-shadow: none;
+@layer utilities {
+  /* Mono "kicker" label used for eyebrows, tags and version chips */
+  .kicker {
+    @apply font-mono text-xs tracking-[0.18em] uppercase text-faint;
+  }
+
+  /* Reusable section rhythm */
+  .section {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-line;
+  }
+
+  /* Animated underline for inline links — collapses under reduced motion */
+  .link-underline {
+    background-image: linear-gradient(var(--color-accent), var(--color-accent));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
 }
-::-moz-selection {
-  background: #fff;
-  color: #000;
-  text-shadow: none;
+
+/* ----------------------------------------------------------------------------
+   Reduced motion: calm every transition/animation and stop background drift.
+   The canvas itself also reads this query in JS and renders a single frame.
+---------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Keep borders/focus visible in Windows High Contrast / forced-colors */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 2px solid CanvasText;
+  }
 }

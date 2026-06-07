@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Eren Arı — KernelGuard">
+  <rect width="64" height="64" rx="14" fill="#0a0a0a"/>
+  <path d="M32 9 L51 15.5 V31 C51 42.5 42.6 50.6 32 55 C21.4 50.6 13 42.5 13 31 V15.5 Z"
+        fill="none" stroke="#3ee8b5" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M28 25 l-6 7 l6 7" fill="none" stroke="#3ee8b5" stroke-width="3.2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="35" y1="39" x2="44" y2="39" stroke="#3ee8b5" stroke-width="3.2" stroke-linecap="round"/>
+</svg>

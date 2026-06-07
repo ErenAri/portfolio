@@ -1,6 +1,6 @@
 {
-  "name": "Eren's Portfolio",
-  "description": "A minimalist portfolio page inspired by clive.io.",
+  "name": "Eren Arı — KernelGuard",
+  "description": "Minimalist portfolio for Eren Arı, founder & lead engineer of KernelGuard, over a live Lattice-Boltzmann fluid background.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
