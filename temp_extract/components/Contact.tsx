@@ -14,7 +14,7 @@ const Contact: React.FC = () => {
         >
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Let's Connect</h2>
           <p className="text-indigo-100 mb-8 leading-relaxed text-lg">
-            I am always open to discussing new research opportunities, software engineering roles, or collaborative projects.
+            I am always open to discussing new research opportunities, software development roles, or collaborative projects.
           </p>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-4">

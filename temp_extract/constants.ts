@@ -44,7 +44,7 @@ export const ARTICLES: Article[] = [
   {
     id: '1',
     title: 'Bridging the Gap: Academic Theory vs. Software Reality',
-    summary: 'An exploration of how theoretical computer science concepts translate into modern software engineering practices.',
+    summary: 'An exploration of how theoretical computer science concepts translate into modern software development practices.',
     date: 'Oct 2023',
     link: 'https://medium.com/@erenari27',
     platform: 'Medium'
@@ -154,7 +154,7 @@ export const EXPERIENCE: Experience[] = [
 
 export const BIO_CONTEXT = `
 You are an AI assistant for Eren Ari's personal portfolio website.
-Eren is a software engineer and researcher with a strong academic background.
+Eren is a software developer and researcher with a strong academic background.
 Key Links:
 - GitHub: https://github.com/ErenAri?tab=repositories
 - Medium: https://medium.com/@erenari27
